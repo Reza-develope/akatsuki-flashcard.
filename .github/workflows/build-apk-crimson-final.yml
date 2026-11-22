@@ -41,12 +41,9 @@ jobs:
         working-directory: source/flashcard-akatsuki (v26)
         run: npx cap add android
 
-      - name: Add native backup plugin (simpan cadangan ke Download)
+      - name: Add native backup plugin (Simpan sebagai)
         working-directory: source/flashcard-akatsuki (v26)
-        run: |
-          D=android/app/src/main/java/com/akatsuki/flashcard
-          mkdir -p "$D"
-          cp native/AkatsukiFilesPlugin.java native/MainActivity.java "$D/"
+        run: node scripts/add-native.cjs
 
       - name: Generate Akatsuki icons and splash screen
         working-directory: source/flashcard-akatsuki (v26)
